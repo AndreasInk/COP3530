@@ -1,4 +1,4 @@
-package primer;
+package introduction;
 
 public class CounterWithIntegerWrapper {
 	private Integer count = 0;  // a simple integer instance variable

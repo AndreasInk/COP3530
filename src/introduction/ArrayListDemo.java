@@ -1,12 +1,9 @@
-package primer;
+package introduction;
 import java.util.*;
 
 public class ArrayListDemo {
 	public static void main(String[] args) {
 
-//		String OS = System.getProperty("os.name");
-//		System.out.println(OS.contentEquals("Mac OS X"));
-//
 		ArrayList<Integer> arr = new ArrayList<>();
 
 		for(int i = 0; i < 15; i++) {

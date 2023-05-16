@@ -1,4 +1,4 @@
-package primer;
+package introduction;
 
 public class Point{
 	public static Integer pointsCreated = 0; // a class-wide common variable 
@@ -7,7 +7,6 @@ public class Point{
 	public static final Point ORIGIN = new Point(0.0,0.0); // a constant public Point object, 
 															    // the object can be modified but not
 	                                                            // the reference variable
-	
 	public Point(Double x, Double y) { // a constructor
 		this.x = x;	this.y = y;        // 'this' refers to the object being considered currently
 		pointsCreated++;
@@ -26,9 +25,6 @@ public class Point{
 
 	public String toString() {
 		//System.out.println("toString from Point is being called");
-//		String str = "(";
-//		str += (x + ", " + y + ")");
-//		return str;
 		return "(" + x + ", " + y + ")";
 	}
 }
