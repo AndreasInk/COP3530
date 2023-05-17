@@ -15,16 +15,19 @@ public class Point{
 	public Double getX() { return x; }
 	public Double getY() { return y; }
 
-	public void setX(Double x) { this.x = x; }
-	public void setY(Double y) { this.y = y; }
-
 	public static Double distance(Point p, Point q) { // an object is not needed to call this 
 		Double t1 = Math.pow((p.getX() - q.getX()), 2), t2 =  Math.pow((p.getY() - q.getY()), 2);
 		return Math.sqrt(t1 + t2);
 	}
 
+	public boolean equals(Object obj) {
+		if( obj instanceof Point ) // check if obj is actually a reference to a Point object
+			return Double.compare(this.x, ((Point) obj).x) == 0 && Double.compare(this.y, ((Point) obj).y) == 0;
+		else
+			return false;
+	}
+
 	public String toString() {
-		//System.out.println("toString from Point is being called");
 		return "(" + x + ", " + y + ")";
 	}
 }

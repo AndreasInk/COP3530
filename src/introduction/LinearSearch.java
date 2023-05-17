@@ -1,4 +1,4 @@
-package tester;
+package introduction;
 
 public class LinearSearch {
     /**
