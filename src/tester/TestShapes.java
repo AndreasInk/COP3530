@@ -24,7 +24,7 @@ public class TestShapes {
 		Circle myCircle2 = new Circle(20.0, "Red", false);
 		System.out.println(myCircle2.equals(myCircle));
 
-//		Rectangle R = new Square(15.78);
-//		System.out.println(R.getDiagonalLength());
+		Rectangle R = new Square(15.78);
+		System.out.println(R.getDiagonalLength());
 	}
 }
