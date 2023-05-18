@@ -22,6 +22,5 @@ public class TestCounter {
 
         Counter c2 = new Counter(100), c3 = new Counter(200);
         System.out.println("Sum of c2 and c3: " + (c2.getValue() + c3.getValue()));
-
     }
 }
