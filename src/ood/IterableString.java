@@ -2,6 +2,7 @@ package ood;
 
 import java.util.Iterator;
 
+//using the Iterable interface
 public class IterableString implements Iterable<Character>{
     String str;
     public IterableString(String str) {
@@ -22,6 +23,7 @@ public class IterableString implements Iterable<Character>{
         return new IterableStringIterator(this);
     }
 
+    // using the Iterator interface
     public static class IterableStringIterator implements Iterator<Character> {
         int position;
         IterableString s;
