@@ -26,7 +26,5 @@ public class TestShapes {
 
 		Rectangle R = new Square(2000.01);
 		System.out.println(R.getDiagonalLength());
-
-		System.out.println("Experiment ended!");
 	}
 }
