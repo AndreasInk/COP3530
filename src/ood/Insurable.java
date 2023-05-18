@@ -1,6 +1,6 @@
 package ood;
 
-// Demonstrating multiple inhertiance for interfaces
+// Demonstrating multiple inheritance for interfaces
 public interface Insurable extends SuperStoreSellableItem, Transportable {
 	 double getInsuredValue();
 }
