@@ -23,7 +23,7 @@ public class TestIterableString {
 //        for( Character c : z )
 //            System.out.print(c);
 
-        // Same approach using the keyword 'var'
+       //  Same approach using the keyword 'var'
 //        var z = new IterableString("Data Structures");
 //        System.out.println(z);
 //        System.out.println("Size: " + z.length() );
