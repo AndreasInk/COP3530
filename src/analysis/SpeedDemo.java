@@ -74,9 +74,6 @@ public class SpeedDemo {
 				arr2[pos++] = i;
 
 		System.out.println("Time taken by our approach: " + (System.currentTimeMillis() - start) + " ms" );
-
-//		System.out.println(Arrays.toString(arr1));
-//		System.out.println(Arrays.toString(arr2));
 	}
 	
 	public static void main(String[] args) {
@@ -95,7 +92,7 @@ public class SpeedDemo {
 
 	    System.out.println("Speedup: " + (double)timeTakenA/timeTakenB);
 
-		//compare();
+		compare();
 	}
 
 }
