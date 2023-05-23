@@ -26,32 +26,9 @@ public class SpeedDemo {
 		
 		return password.toString();
 	}
-	
-//	public static double findMax(double[] array) {
-//		int n = array.length;
-//		double maxSoFar = array[0];
-//		for(int i = 1; i < n; i++)
-//			if( array[i] > maxSoFar )
-//				maxSoFar = array[i];
-//		return maxSoFar;
-//	}
-	
-//	void doBubbleSort(int[] array) {
-//		int n = array.length;
-//
-//		for (int i = 0; i < n-1; i++) {
-//			for (int j = 0; j < n-i-1; j++) {
-//				if (array[j] > array[j+1]) 	{
-//					int hold = array[j];
-//					array[j] = array[j+1];
-//					array[j+1] = hold;
-//				}
-//			}
-//		 }
-//	}
 
 	public static void compare(){
-		int n = 2000000, k = 5;
+		int n = 5000000, k = 5;
 		Random r = new Random();
 		int[] arr1 = new int[n], arr2 = new int[n];
 
@@ -78,19 +55,19 @@ public class SpeedDemo {
 	
 	public static void main(String[] args) {
 		  
-	    long startA = System.currentTimeMillis();
-	    generateLongStringA(200000);
-	    long timeTakenA = System.currentTimeMillis() - startA;
-
-	    System.out.println("Time taken by A: " + timeTakenA + " ms" );
-
-	    long startB = System.currentTimeMillis();
-	    generateLongStringB(200000);
-	    long timeTakenB = System.currentTimeMillis() - startB;
-
-	    System.out.println("Time taken by B: " + timeTakenB + " ms" );
-
-	    System.out.println("Speedup: " + (double)timeTakenA/timeTakenB);
+//	    long startA = System.currentTimeMillis();
+//	    generateLongStringA(200000);
+//	    long timeTakenA = System.currentTimeMillis() - startA;
+//
+//	    System.out.println("Time taken by A: " + timeTakenA + " ms" );
+//
+//	    long startB = System.currentTimeMillis();
+//	    generateLongStringB(200000);
+//	    long timeTakenB = System.currentTimeMillis() - startB;
+//
+//	    System.out.println("Time taken by B: " + timeTakenB + " ms" );
+//
+//	    System.out.println("Speedup: " + (double)timeTakenA/timeTakenB);
 
 		compare();
 	}
