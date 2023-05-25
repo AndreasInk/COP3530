@@ -15,6 +15,14 @@ public class Point{
 	public Double getX() { return x; }
 	public Double getY() { return y; }
 
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public void setY(double y) {
+		this.y = y;
+	}
+
 	public static Double distance(Point p, Point q) { // an object is not needed to call this 
 		Double t1 = Math.pow((p.getX() - q.getX()), 2), t2 =  Math.pow((p.getY() - q.getY()), 2);
 		return Math.sqrt(t1 + t2);

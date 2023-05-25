@@ -25,9 +25,9 @@ public class TwoSum {
         int left = 0, right = A.length-1;
 
         while( left < right )
-            if( A[left] + A[right] > x ) // sum is larger; decrement right
+            if (A[left] + A[right] > x) // sum is larger; decrement right
                 right--;
-            else if( A[left] + A[right] < x )  // sum is less; increment left
+            else if (A[left] + A[right] < x)  // sum is less; increment left
                 left++;
             else // A[left] + A[right] == x; success!
                 return true;

@@ -18,13 +18,13 @@ public class TestDoublyLinkedList {
 		myFirstDLL.addLast('P');
 		myFirstDLL.addLast('C');
 
-//		for( Character c : myFirstDLL )
-//			System.out.print(c + " ");
+		for( Character c : myFirstDLL )
+			System.out.print(c + " ");
 
-		Iterator it = myFirstDLL.iterator();
-
-		while( it.hasNext() )
-			System.out.print( it.next() + " ");
+//		Iterator it = myFirstDLL.iterator();
+//
+//		while( it.hasNext() )
+//			System.out.print( it.next() + " ");
 
 //		System.out.println(myFirstDLL);
 		
