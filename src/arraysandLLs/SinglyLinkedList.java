@@ -5,8 +5,8 @@ import java.util.Iterator;
 public class SinglyLinkedList<E> implements Iterable<E> {
 	//****************************************************//
 	private static class Node<E> {
-		final private E element;
-		private Node<E> next;
+		final private E element; // stores data
+		private Node<E> next; // points to the next node in the list
 
 		public Node(E e, Node<E> refToTheNextNode) {
 			element = e;
@@ -28,16 +28,20 @@ public class SinglyLinkedList<E> implements Iterable<E> {
 	private Node<E> head = null, tail = null;
 	private int size = 0;
 
+	// an empty constructor
 	public SinglyLinkedList() { }
 
+	// returns the number of nodes in the list
 	public int size() {
 		return size;
 	}
 
+	// determines whether the list is empty
 	public boolean isEmpty() {
 		return (size == 0);
 	}
 
+	// return the data stored inside the head node
 	public E first() {
 		if( isEmpty() )
 			return null;
@@ -45,6 +49,7 @@ public class SinglyLinkedList<E> implements Iterable<E> {
 		return head.getElement();
 	}
 
+	// return the data stored inside the tail node
 	public E last() {
 		if( isEmpty() )
 			return null;
@@ -52,6 +57,7 @@ public class SinglyLinkedList<E> implements Iterable<E> {
 		return tail.getElement();
 	}
 
+	// adds a new node at the beginning of the list
 	public void addFirst(E e) {
 		head = new Node<>(e, head);
 
@@ -61,6 +67,7 @@ public class SinglyLinkedList<E> implements Iterable<E> {
 		size++;
 	}
 
+	// adds a new node at the end of the list
 	public void addLast(E e) {
 		Node<E> newest = new Node<>(e,null);
 
@@ -73,6 +80,7 @@ public class SinglyLinkedList<E> implements Iterable<E> {
 		size++;
 	}
 
+	// removes the head node
 	public E removeFirst() {
 		if( isEmpty() )
 			return null;
@@ -87,6 +95,8 @@ public class SinglyLinkedList<E> implements Iterable<E> {
 		return answer;
 	}
 
+
+	// adds a new node after the node that contains 'predecessor' as the element
 	public boolean addAfter(E predecessor, E incomingItem) {
 		Node<E> current = head, newNode = new Node<>(incomingItem, null);
 

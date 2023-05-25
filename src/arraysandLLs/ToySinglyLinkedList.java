@@ -32,7 +32,7 @@ public class ToySinglyLinkedList {
         Node nodeP = new Node('P', null);
         nodeK.setNext(nodeP);
 
-        Node nodeC = new Node('C', null); // the tail
+        Node nodeC = new Node('C', null);
         nodeP.setNext(nodeC);
 
         Node nodeT = new Node('T', null); // the tail
