@@ -10,7 +10,8 @@ public class CompareSpeedLLVsArrayList {
 		SinglyLinkedList<Integer> LL = new SinglyLinkedList<>();
 
 		int n = 1000000;
-		
+
+		//==============================================================================//
 		long startA = System.currentTimeMillis();
 		for(int i = 0; i < n; i++) {
 			Integer randomInteger = generator.nextInt();
@@ -18,8 +19,12 @@ public class CompareSpeedLLVsArrayList {
 		}
 	    long timeTakenA = System.currentTimeMillis() - startA;
 	    System.out.println("Time taken by SLL: " + timeTakenA + " ms" );
-	    
-	    ArrayList<Integer> AL = new ArrayList<>();
+		//==============================================================================//
+
+
+
+		//==============================================================================//
+		ArrayList<Integer> AL = new ArrayList<>(); // COP3530ArrayList can also be used
 		
 		long startB = System.currentTimeMillis();
 		for(int i = 0; i < n; i++) {
@@ -28,5 +33,7 @@ public class CompareSpeedLLVsArrayList {
 		}
 	    long timeTakenB = System.currentTimeMillis() - startB;
 	    System.out.println("Time taken by AL: " + timeTakenB + " ms" );
+		//==============================================================================//
+
 	}
 }
