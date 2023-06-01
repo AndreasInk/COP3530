@@ -96,7 +96,6 @@ public class CircularLinkedList<E> implements Iterable<E> {
         return new CircularLinkedListIterator<>(this);
     }
 
-
     public static class CircularLinkedListIterator<E> implements Iterator<E> {
         private Node<E> current;
         final private Node<E> tail;
