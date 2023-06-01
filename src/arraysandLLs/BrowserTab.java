@@ -11,8 +11,8 @@ public class BrowserTab {
     public BrowserTab() { System.out.println(getTimeStamp() + "New tab opened."); }
     
     public void typeAndGoNewSite(String newPage) {
-        if( !currentPage.isEmpty() )
-            previousPages.addLast(currentPage);
+        if( !currentPage.isEmpty() ) // some page is being viewed currently
+            previousPages.addLast(currentPage); // send the current page to the previousPages DLL
 
         currentPage = newPage;
         System.out.println(getTimeStamp() + "Currently viewing: " + currentlyViewing());
