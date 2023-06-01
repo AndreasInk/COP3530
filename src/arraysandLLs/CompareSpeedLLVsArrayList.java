@@ -2,7 +2,7 @@ package arraysandLLs;
 
 import java.util.*;
 
-public class TestSpeedLLVsArrayList {
+public class CompareSpeedLLVsArrayList {
 
 	public static void main(String[] args) {
 		Random generator = new Random();
