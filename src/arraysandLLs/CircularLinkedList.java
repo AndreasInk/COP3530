@@ -99,7 +99,7 @@ public class CircularLinkedList<E> implements Iterable<E> {
     public static class CircularLinkedListIterator<E> implements Iterator<E> {
         private Node<E> current;
         private int elementsMetSoFar;
-        CircularLinkedList<E> L;
+        private final CircularLinkedList<E> L;
 
         public CircularLinkedListIterator(CircularLinkedList<E> list) {
             L = list;
