@@ -5,7 +5,6 @@ import arraysandLLs.DoublyLinkedList;
 import java.util.Iterator;
 
 public class TestDoublyLinkedList {
-
 	public static void main(String[] args)  {
 		DoublyLinkedList<Character> myFirstDLL = new DoublyLinkedList<>();
 		

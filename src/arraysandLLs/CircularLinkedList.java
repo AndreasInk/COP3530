@@ -98,26 +98,25 @@ public class CircularLinkedList<E> implements Iterable<E> {
 
     public static class CircularLinkedListIterator<E> implements Iterator<E> {
         private Node<E> current;
-        final private Node<E> tail;
-        private boolean atTheHead = true;
+        private int elementsMetSoFar;
+        CircularLinkedList<E> L;
 
         public CircularLinkedListIterator(CircularLinkedList<E> list) {
-            tail = list.tail;
-            current = tail.getNext();
+            L = list;
+            if( L.tail != null )
+                 current = L.tail.getNext(); // set current to head
+            elementsMetSoFar = 0;
         }
 
         public boolean hasNext() {
-            if( atTheHead ) {
-                atTheHead = false;
-                return true;
-            }
-            return current != tail.getNext();
+            return elementsMetSoFar < L.size();
         }
 
         public E next() {
-            E data = current.getElement();
+            E hold = current.getElement();
             current = current.getNext();
-            return data;
+            elementsMetSoFar++;
+            return hold;
         }
     }
 }

@@ -14,6 +14,8 @@ public class TestSinglyLinkedList {
 		charSLL.addLast('P');
 		charSLL.addLast('C');
 
+		//System.out.println(charSLL.removeFirst());
+
 		System.out.println(charSLL); // the toString method from SinglyLinkedList is invoked
 
 		charSLL.addAfter('K', 'T');

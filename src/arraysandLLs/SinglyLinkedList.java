@@ -150,11 +150,13 @@ public class SinglyLinkedList<E> implements Iterable<E> {
 
 		// returns false if current has already past the tail
 		public boolean hasNext()  {
+			//System.out.println("Using hasNext()");
 			return current != null;
 		}
 
 		// returns the data/element stored in the current node and then set current to the next node
 		public E next() {
+			//System.out.println("Using next()");
 			E data  = current.getElement();
 			current = current.getNext();
 			return data;
