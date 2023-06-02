@@ -13,18 +13,14 @@ public class LinkedQueue<E> implements QueueADT<E>, Iterable<E> {
 	public E dequeue() {
 		return L.removeFirst();
 	}
-
 	public int size() {
 		return L.size();
 	}
-
 	public boolean isEmpty() {
 		return L.isEmpty();
 	}
-
 	public E first() {
 		return L.first();
 	}
-
 	public Iterator<E> iterator() { return L.iterator(); }
 }

@@ -14,7 +14,7 @@ public class COP3530ArrayList<E> {
             return false;
         }
         if( elementCount == A.length ) { // reallocate
-            Object[] Aprime =  new Object[ (int)(A.length * 1.5)];
+            Object[] Aprime =  new Object[ (int)(A.length * 1.5) ];
             System.arraycopy(A, 0, Aprime, 0, elementCount);
             Aprime[elementCount] = e;
             A = Aprime;

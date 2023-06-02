@@ -16,8 +16,7 @@ public class TestArrayStack {
 		for( var city : cityNames )
 			System.out.print(city + " ");
 
-		System.out.println("Top element: " + cityNames.top());
-
+		System.out.println("\nTop element: " + cityNames.top());
 
 		while( !cityNames.isEmpty() ) {
 			String s = cityNames.pop();

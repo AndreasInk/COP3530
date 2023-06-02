@@ -46,7 +46,6 @@ public class ArrayQueue<E> implements QueueADT<E>, Iterable<E> {
 		return answer;
 	}
 
-	@Override
 	public Iterator<E> iterator() {
 		return new ArrayQueueIterator<>(this);
 	}

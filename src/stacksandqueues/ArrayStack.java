@@ -8,7 +8,7 @@ public class ArrayStack<E> implements StackADT<E>, Iterable<E>{
 
 	@SuppressWarnings("unchecked")
 	public ArrayStack(int capacity ) {
-		items = (E[])new Object[capacity];
+		items = (E[]) new Object[capacity];
 	}
 	
 	public int size() {	return stackTop + 1; }
