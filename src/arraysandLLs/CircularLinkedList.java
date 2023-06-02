@@ -24,7 +24,6 @@ public class CircularLinkedList<E> implements Iterable<E> {
             next = refToTheNextNode;
         }
     }
-    //****************************************************//
 
     private Node<E> tail = null; // we maintain just the tail; head is not needed in our implementation
     // Note that tail.getNext() will give us the head
