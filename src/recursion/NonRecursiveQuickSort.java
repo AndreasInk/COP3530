@@ -2,7 +2,7 @@ package recursion;
 
 import stacksandqueues.*;
 
-public class NonRecursiveQuicksort {
+public class NonRecursiveQuickSort {
     public static <K extends Comparable<K>> void sort(K[] S) {
         recurseAndSort(S, 0, S.length - 1);
     }

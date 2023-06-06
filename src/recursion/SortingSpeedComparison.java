@@ -27,7 +27,7 @@ public class SortingSpeedComparison {
 		System.out.println("Time taken by QuickSort (O(n^2)): " + (System.currentTimeMillis() - start) + " ms" );
 
 		start = System.currentTimeMillis();
-		NonRecursiveQuicksort.sort(arr2);
+		NonRecursiveQuickSort.sort(arr2);
 		System.out.println("Time taken by NonRecursiveQuickSort (O(n^2)): " + (System.currentTimeMillis() - start) + " ms" );
 
 		start = System.currentTimeMillis();
