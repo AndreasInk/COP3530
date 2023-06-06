@@ -38,6 +38,9 @@ public class SierpinskiTriangle extends JFrame {
     private static void drawTriangles(Graphics g, int d, Point p1, Point p2, Point p3) {
         if (d == 0) {  // depth is 0, draw the triangle
 
+            // set a random color
+            g.setColor(new Color((int)(Math.random() * 0x1000000)));
+
             Polygon P = new Polygon();
             P.addPoint(p1.x,p1.y);
             P.addPoint(p2.x,p2.y);
@@ -57,6 +60,6 @@ public class SierpinskiTriangle extends JFrame {
     }
 
     public static void main(String[] args) {
-    	new SierpinskiTriangle(1);
+    	new SierpinskiTriangle(3);
     }
 }
