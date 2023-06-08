@@ -9,7 +9,7 @@ public class ArraySummer {
 		else if( i == 0 )
 			return A[0];
 		else
-			return A[i] + add(A, i-1);
+			return add(A, i-1) + A[i];
 	}
 	
 	public static void main(String[] args) {

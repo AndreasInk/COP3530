@@ -21,6 +21,7 @@ public class BinarySearch {
 	
 	public static void main(String[] args) {
 		int[] A = {2,4,5,7,8,9,12,14,17,19,22,25,27,28,33,37};
-		System.out.println(binarySearch(A,22));
+		System.out.println(binarySearch(A,22)); // prints true
+		System.out.println(binarySearch(A,21)); // prints false
 	}
 }
