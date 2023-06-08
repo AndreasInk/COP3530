@@ -15,21 +15,22 @@ public class TestMergeSort {
 		
 		Random r = new Random();
 		ComparablePoint[] P = new ComparablePoint[10];
-		
+
 		for(int i = 0; i < 10; i++)
 			P[i] = new ComparablePoint(r.nextInt(100),r.nextInt(100));
-		
-		for(ComparablePoint x : P)
-			System.out.print(x + " ");
-		
-		System.out.println();
-		
-		MergeSort.sort(P);
-		
+
 		for(ComparablePoint x : P)
 			System.out.print(x + " ");
 
-		String[] S = {"Jax","Atl","Artic","Beijing","London"};
+		System.out.println();
+
+		MergeSort.sort(P);
+
+		for(ComparablePoint x : P)
+			System.out.print(x + " ");
+
+		//String[] S = {"Jax","Atl","Artic","Beijing","London"};
+		String[] S = {"Alexandria","Alex","Alexandrib"};
 		for(String s : S)
 			System.out.print(s + " ");
 		System.out.println();
@@ -37,7 +38,7 @@ public class TestMergeSort {
 		MergeSort.sort(S);
 		for(String s : S)
 			System.out.print(s + " ");
-		
+
 	}
 
 }

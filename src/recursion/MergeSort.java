@@ -12,10 +12,11 @@ public class MergeSort {
 
 		sort( S1 ); // recursively sort S1
 		sort( S2 ); // recursively sort S2
+
 		merge(S1, S2, S); // merge S1, S2 into S
 	}
 
-	public static <K extends Comparable<K> > void merge(K[] leftSequence, K[] rightSequence, K[] outputSequence) {
+	private static <K extends Comparable<K> > void merge(K[] leftSequence, K[] rightSequence, K[] outputSequence) {
 		int i = 0; // index into leftSequence
 		int j = 0; // index into rightSequence
 		int k = 0; // index into outputSequence
