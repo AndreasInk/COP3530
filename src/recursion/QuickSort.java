@@ -7,7 +7,7 @@ public class QuickSort {
 
     private static <K extends Comparable<K>> void recurseAndSort(K[] S, int first, int last) {
         if (first < last) {
-            int pivotIndex = partition(S, first, last); // partiton and return the final index of the pivot
+            int pivotIndex = partition(S, first, last); // partition and return the final index of the pivot
             recurseAndSort(S, first, pivotIndex - 1); // recursively sort the left portion
             recurseAndSort(S, pivotIndex + 1, last);  // recursively sort the right portion
         }
