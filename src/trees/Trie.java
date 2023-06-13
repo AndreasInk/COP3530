@@ -130,10 +130,11 @@ public class Trie implements Iterable<String> {
     }
 
 
-    // returns an iterator for the trie
+    // returns an iterator for the trie;
+    // downside of this approach: requires additional space
     public Iterator<String> iterator() {
-        ArrayList<String> allWords = new ArrayList<>();
+        ArrayList<String> allWords = new ArrayList<>(); // additional space used
         getAllWords(allWords); // grab all the words in the trie
-        return allWords.iterator();
+        return allWords.iterator(); // return an ArrayList iterator
     }
 }
