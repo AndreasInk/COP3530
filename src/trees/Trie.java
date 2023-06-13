@@ -109,7 +109,7 @@ public class Trie implements Iterable<String> {
     // finds the words which have the same prefix s
     public void wordsHavingPrefix(String s, ArrayList<String> words){
         TrieNode lastNode = traverseUsingString(s);
-        getAllWordsRec(lastNode,words);
+        getAllWordsRec(lastNode,words); // grab all the words in the subtree rooted at 'lastNode'
     }
 
     // counts the total number of nodes in the tree including the root
@@ -123,7 +123,7 @@ public class Trie implements Iterable<String> {
             return 1;
 
         int nodeCount = 1; // count the current node
-        for (int i = 0; i < node.children.length; i++)
+        for (int i = 0; i < node.children.length; i++) // spawn a recursive call for every child
             if (node.children[i] != null)
                 nodeCount += numberOfNodesRec( node.children[i] );
         return nodeCount;
