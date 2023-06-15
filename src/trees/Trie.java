@@ -3,7 +3,8 @@ package trees;
 import java.io.*;
 import java.util.*;
 
-public class Trie implements Iterable<String> {
+public class Trie implements Iterable<String> { // This code works only on English words
+                                                // made up of letters only.
     private static class TrieNode {
         String word = null;
         TrieNode parent = null;
@@ -23,7 +24,7 @@ public class Trie implements Iterable<String> {
             insertNewWord( input.nextLine() );
     }
 
-    // returns all words stored in the trie
+    // puts all the words currently stored in the trie inside an ArrayList
     public void getAllWords( ArrayList<String> words) { getAllWordsRec(root,words); }
 
     // a recursive helper method for getAllWords() method
@@ -69,6 +70,10 @@ public class Trie implements Iterable<String> {
 
     // inserts a new word in the trie
     public void insertNewWord(String s) {
+        for(int i = 0; i < s.length(); i++) // check if every character is an English letter or not
+            if( !Character.isLetter(s.charAt(i)) )
+                throw new IllegalArgumentException("Every character in the string must be a letter.");
+
         TrieNode lastNode = traverseUsingString(s);
         if( lastNode.word == null) {
             lastNode.word = s;
@@ -81,7 +86,7 @@ public class Trie implements Iterable<String> {
         s = s.toLowerCase();
         TrieNode current = root;
         for(int i = 0; i < s.length() ; i++) { // climb down the tree
-            int childID = s.charAt(i) - 'a';
+            int childID = s.charAt(i) - 'a'; // get the id of the child
             if( current.children[childID] == null )
                 current.children[childID] = new TrieNode();
             current = current.children[childID];
