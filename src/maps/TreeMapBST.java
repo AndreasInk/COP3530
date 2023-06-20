@@ -171,7 +171,7 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
                 return holdValue;
             }
         }
-        return null; // no record exists whose key is 'key'
+        return null; // no record exists whose key is 'key' - return null in this case
     }
     //**********************************************************//
     // prints the inorder traversal sequence of the tree
