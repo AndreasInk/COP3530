@@ -46,6 +46,7 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
     }
     //**********************************************************//
     // updates the value part of the record whose key is 'key' with a new value
+    // returns the old value
     public V updateValue(K key, V newValue) {
         if( key == null )
             throw new IllegalArgumentException("Null keys are not allowed.");
@@ -62,7 +63,7 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
             else  // go the right subtree
                 current = current.right;
         }
-        return null; // signal failure; such a record does not exist
+        return null; // signal failure; such a record does not exist in the tree
     }
     //**********************************************************//
     // puts a new record with key 'key' and value 'value' in the tree
