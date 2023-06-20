@@ -161,12 +161,14 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
                 }
                 // both subtrees exist
                 if (current.left.right == null) { // left child of 'current' does not have a right child
-                    current.key = current.left.key; current.val = current.left.val;
+                    current.key = current.left.key;
+                    current.val = current.left.val;
                     current.left = current.left.left;
                 }
                 else { // left child of 'current' has a right child
-                    Node<K, V> inorderPredecessor = findAndDeleteLargestChild(current.left);
-                    current.key = inorderPredecessor.key; current.val = inorderPredecessor.val;
+                    Node<K, V> inorderPredecessor = findAndDeleteLargestChild(current.left); // also deletes!
+                    current.key = inorderPredecessor.key;
+                    current.val = inorderPredecessor.val;
                 }
                 return holdValue;
             }
