@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class TestTreeMapBinarySearchTree {
 	public static void main(String[] args) {
 		TreeMapBST<Integer,String> myBST = new TreeMapBST<>();
-		
+
 		myBST.put(55, "Eric");
 		myBST.put(45, "Pat");
 		myBST.put(35, "Caroline");

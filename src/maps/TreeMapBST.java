@@ -42,7 +42,7 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
             else  // go the right subtree
                 current = current.right;
         }
-        return null; // record with key 'ket' is not present, return null
+        return null; // record with key 'key' is not present, return null
     }
     //**********************************************************//
     // updates the value part of the record whose key is 'key' with a new value
@@ -144,7 +144,9 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
                 isLeftChild = false;
             }
             else { // found the desired record that has key 'key'
-                V holdValue = current.val;
+                V holdValue = current.val; // hold the value part before deleting the record; need to return it later
+
+                // Case 1 + Case 2 (has only right child)
                 if( current.left == null ) { // left subtree is nonexistent
                     if( parentOfCurrent == null ) // the desired record is found at the root
                         root = current.right;
@@ -152,6 +154,7 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
                     else                    parentOfCurrent.right = current.right;
                     return holdValue;
                 }
+                // Case 2 (has only left child)
                 if( current.right == null ) { // right subtree is nonexistent
                     if( parentOfCurrent == null ) // the desired record is found at the root
                         root = current.left;
@@ -159,13 +162,16 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
                     else                    parentOfCurrent.right = current.left;
                     return holdValue;
                 }
-                // both subtrees exist
-                if (current.left.right == null) { // left child of 'current' does not have a right child
+                // Case 3 (has both left and right children):
+                // left child of 'current' does not have a right child; use Case 2 to delete
+                if (current.left.right == null) {
                     current.key = current.left.key;
                     current.val = current.left.val;
                     current.left = current.left.left;
                 }
-                else { // left child of 'current' has a right child
+                // Case 3 (has both left and right children):
+                // left child of 'current' has a right child; delete using its inorder predecessor
+                else {
                     Node<K, V> inorderPredecessor = findAndDeleteLargestChild(current.left); // also deletes!
                     current.key = inorderPredecessor.key;
                     current.val = inorderPredecessor.val;
