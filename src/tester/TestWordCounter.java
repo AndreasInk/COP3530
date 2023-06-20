@@ -5,7 +5,6 @@ import maps.WordCounter;
 import java.io.IOException;
 
 public class TestWordCounter {
-
 	public static void main(String[] args) throws IOException {
 		WordCounter wc = new WordCounter("datasets/oz.txt");
 		System.out.println("Unique words count: " + wc.getuniqueWordsCount());
@@ -15,5 +14,4 @@ public class TestWordCounter {
 		System.out.println(wc.countOccurrenceOf("dorothy"));
 		System.out.println(wc.countOccurrenceOf("stack"));
 	}
-
 }

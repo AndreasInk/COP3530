@@ -226,6 +226,7 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
         root = null; numberOfNodes = 0;
     }
     //**********************************************************//
+    // find height of the binary search tree
     public int height( ){ return heightRec(root); }
     public boolean isLeaf(Node<K,V> n) { return n.left == null && n.right == null; }
     private int heightRec(Node<K,V> n){
