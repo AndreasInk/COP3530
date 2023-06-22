@@ -1,7 +1,7 @@
 package tester;
 
 import maps.TreeMapBST;
-import java.util.ArrayList;
+import java.util.*;
 
 public class TestTreeMapBinarySearchTree {
 	public static void main(String[] args) {
@@ -50,6 +50,23 @@ public class TestTreeMapBinarySearchTree {
 		System.out.print("Inorder traversal. ");
 		dictionary.printInOrder();
 
+		// demonstrating binary search trees on randomly ordered datasets
+		int n = 5000;
+		ArrayList<Integer> A = new ArrayList<>(n);
+		for(int i = 0; i < n; i++)
+			A.add(i);
+
+		TreeMapBST<Integer,String> T = new TreeMapBST<>();
+		for(int i : A)
+			T.put(i,"junkString");
+		System.out.println("\nHeight(T): " + T.height());
+
+		Collections.shuffle(A);
+		T.clear();
+
+		for(int i : A)
+			T.put(i,"junkString");
+		System.out.println("\nHeight(T): " + T.height());
 
 	}
 }
