@@ -133,12 +133,12 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
         boolean isLeftChild = false;
 
         while ( current != null ) {
-            if (key.compareTo(current.key) < 0) { // delete recursively in the left subtree
+            if (key.compareTo(current.key) < 0) { // delete in the left subtree
                 parentOfCurrent = current;
                 current = current.left;
                 isLeftChild = true;
             }
-            else if (key.compareTo(current.key) > 0) { // delete recursively in the right subtree
+            else if (key.compareTo(current.key) > 0) { // delete in the right subtree
                 parentOfCurrent = current;
                 current = current.right;
                 isLeftChild = false;
@@ -237,7 +237,7 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
     //**********************************************************//
     // find height of the binary search tree
     public int height( ){ return heightRec(root); }
-    public boolean isLeaf(Node<K,V> n) { return n.left == null && n.right == null; }
+    private boolean isLeaf(Node<K,V> n) { return n.left == null && n.right == null; }
     private int heightRec(Node<K,V> n){
         if( n == null || isLeaf(n) )  return 0;
         else             return 1 + Math.max( heightRec(n.left) , heightRec(n.right) );

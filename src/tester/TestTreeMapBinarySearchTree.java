@@ -51,7 +51,7 @@ public class TestTreeMapBinarySearchTree {
 		dictionary.printInOrder();
 
 		// demonstrating binary search trees on randomly ordered datasets
-		int n = 5000;
+		int n = 10000;
 		ArrayList<Integer> A = new ArrayList<>(n);
 		for(int i = 0; i < n; i++)
 			A.add(i);

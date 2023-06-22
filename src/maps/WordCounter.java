@@ -38,7 +38,7 @@ public class WordCounter {
 
 	public Integer countOccurrenceOf(String w) {
 		Integer count = T.get(w);
-		return ( count == null )? 0 : count;
+		return ( count == null ) ? 0 : count;
 	}
 
 	public void getWordFrequenciesSortedLexicographically() {
@@ -47,9 +47,6 @@ public class WordCounter {
 
 		ArrayList<Integer> counts = new ArrayList<>();
 		T.getAllValues(counts);
-
-		if( words.size() != counts.size() )
-			throw new IllegalArgumentException("Something is wrong!");
 
 		for(int i = 0; i < words.size(); i++)
 			System.out.println("<" + words.get(i) + ", " + counts.get(i) + ">");
