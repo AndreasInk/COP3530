@@ -1,7 +1,8 @@
 package maps;
 
 @SuppressWarnings("SuspiciousNameCombination") // for suppressing unnecessary variable name warnings
-public class TreeMapRBTree<K extends Comparable<K>, V> {
+public class TreeMapRBTree<K extends Comparable<K>, V> { // Since the remove method is missing, we are
+                                                         // unable to implement the MapADT interface
     private static final boolean RED = false, BLACK = true;
     private boolean CASE_TRACING = false;
     private static class Node<K, V> {
