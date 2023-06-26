@@ -13,7 +13,7 @@ public class TreeMapRBTree<K extends Comparable<K>, V> { // Since the remove met
         public Node(K k, V v) {
             key = k; val = v;
             left = right = parent = null;
-            color = RED;
+            color = RED; // new incoming nodes are always colored RED
         }
 
         public String toString() {
@@ -51,7 +51,7 @@ public class TreeMapRBTree<K extends Comparable<K>, V> { // Since the remove met
         return ( isLeftChild(node.parent) ) ? node.parent.parent.right : node.parent.parent.left;
     }
 
-    // right rotates the subtree rooted at node 'y'
+    // right rotates the subtree rooted at node 'y'; takes O(1) time
     private void rightRotateAt(Node<K,V> y) {
         Node<K,V> x = y.left;
         y.left = x.right;
@@ -69,7 +69,7 @@ public class TreeMapRBTree<K extends Comparable<K>, V> { // Since the remove met
         y.parent = x;
     }
 
-    // left rotates the subtree rooted at node 'x'
+    // left rotates the subtree rooted at node 'x'; takes O(1) time
     private void leftRotateAt(Node<K,V> x) {
         Node<K,V> y = x.right;
         x.right = y.left;
