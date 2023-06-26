@@ -92,11 +92,13 @@ public class TreeMapRBTree<K extends Comparable<K>, V> { // Since the remove met
         if( key == null )   throw new IllegalArgumentException("Null keys are not allowed.");
         if( value == null ) throw new IllegalArgumentException("Null values are not allowed.");
 
-        if( CASE_TRACING ) System.out.println("Inserting record <" + key + ", " + value + ">");
+        if( CASE_TRACING ) System.out.print("Inserting record <" + key + ", " + value + ">; ");
 
         Node<K,V> z = new Node<>(key,value); // node is RED right now
 
         if( isEmpty() ) {
+            if(CASE_TRACING )
+                System.out.println(" Inserting the root node ");
             root = z;
             root.color = BLACK;
             numberOfNodes++;
@@ -128,33 +130,34 @@ public class TreeMapRBTree<K extends Comparable<K>, V> { // Since the remove met
 
         numberOfNodes++;
 
+        if(CASE_TRACING && z.parent.color == BLACK )
+            System.out.println(" No case execution is needed since parent in BLACK");
+
         // Fixing up the tree by climbing up
         // This part of the code has been inspired from the pseudocode presented in the
         // famous CLRS book 'Introduction to Algorithms' (no need to refer to it in COP 3530).
         while( z.parent != null && z.parent.color == RED ){
             Node<K,V> y = uncle(z);
-            if( y != null && y.color == RED ){                      // Case 1
+            if( y != null && y.color == RED ){                          // Case 1
                 // Note: Case 1 code is generalized and works both for Case 1a and 1b
-                if( CASE_TRACING ) System.out.println("Case 1");    // Case 1
-                z.parent.color = BLACK;                             // Case 1
-                y.color = BLACK;                                    // Case 1
-                grandParent(z).color = RED;                         // Case 1
-                z = grandParent(z);                                 // Case 1
+                if( CASE_TRACING ) System.out.println(" Using Case 1"); // Case 1
+                z.parent.color = BLACK;                                 // Case 1
+                y.color = BLACK;                                        // Case 1
+                grandParent(z).color = RED;                             // Case 1
+                z = grandParent(z);                                     // Case 1
             }
             else { // y == null || y.color == BLACK
                 boolean isCase2 = false;
                 if( isLeftChild(z.parent) && isRightChild(z) ) {
                     isCase2 = true;                                                                 // Case 2
-                    if( CASE_TRACING ) System.out.println("Case 2a");                               // Case 2
+                    if( CASE_TRACING ) System.out.println(" Using Case 2a");                         // Case 2
                     z = z.parent;                                                                   // Case 2
-                    if( CASE_TRACING ) System.out.println("Left rotating at " + z.toString() );     // Case 2
                     leftRotateAt(z);                                                                // Case 2
                 }                                                                                   // Case 2
                 else if ( isRightChild(z.parent) && isLeftChild(z) ) {                              // Case 2
                     isCase2 = true;                                                                 // Case 2
-                    if( CASE_TRACING ) System.out.println("Case 2b");                               // Case 2
+                if( CASE_TRACING ) System.out.println(" Using Case 2b");                             // Case 2
                     z = z.parent;                                                                   // Case 2
-                    if( CASE_TRACING ) System.out.println("Right rotating at " + z.toString() );    // Case 2
                     rightRotateAt(z);                                                               // Case 2
                 }
 
@@ -164,12 +167,12 @@ public class TreeMapRBTree<K extends Comparable<K>, V> { // Since the remove met
                 grandParent(z).color = RED;                                                                   // Case 3
                 if( isLeftChild(z.parent) ) {                                                                 // Case 3
                     if( CASE_TRACING && !isCase2 )                                                            // Case 3
-                        System.out.println("Case 3a " + grandParent(z).toString() );                          // Case 3
+                        System.out.println(" Using Case 3a " );                                               // Case 3
                     rightRotateAt(grandParent(z));                                                            // Case 3
                 }                                                                                             // Case 3
                 else {                                                                                        // Case 3
                     if( CASE_TRACING && !isCase2 )                                                            // Case 3
-                        System.out.println("Case 3b " + grandParent(z).toString() );                          // Case 3
+                        System.out.println(" Using Case 3b " );                                               // Case 3
                     leftRotateAt( grandParent(z) );                                                           // Case 3
                 }
             }
