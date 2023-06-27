@@ -1,15 +1,16 @@
 package tester;
 
 import maps.*;
+
 import java.util.*;
 
 public class TestHashMapSeparateChaining {
     public static void main(String[] args) {
-        HashMapSeparateChaining<Integer,String> H = new HashMapSeparateChaining<>();
-        H.put(40,"Bob");
-        H.put(92,"Eric");
-        H.put(36,"Rose");
-        H.put(62,"Donald");
+        HashMapSeparateChaining<Integer, String> H = new HashMapSeparateChaining<>();
+        H.put(40, "Bob");
+        H.put(92, "Eric");
+        H.put(36, "Rose");
+        H.put(62, "Donald");
         H.put(23, "Alice");
         H.put(96, "Jim");
         H.put(112, "Peter");
@@ -29,28 +30,15 @@ public class TestHashMapSeparateChaining {
         H.put(12, "Kim");
         H.put(33, "Debbie");
 
-        //System.out.println(H);
+        for (var r : H)
+            System.out.print(r + " ");
 
+        System.out.println(H.get(36));
 
-//        H.put(0, "Maria");
-
-        //H.put(0, "Kim");
-
-       // System.out.println(H);
-
-        //  H.clear();
-
-//        System.out.println(H);
-//
-//        System.out.println(H.get(36));
-//
-//        for( var r : H )
-//            System.out.println(r);
-//
         ArrayList<String> A = new ArrayList<>();
         H.getAllValues(A);
 
-        for(var s : A)
+        for (var s : A)
             System.out.print(s + " ");
 
         ArrayList<Integer> B = new ArrayList<>();
@@ -58,13 +46,13 @@ public class TestHashMapSeparateChaining {
 
         System.out.println();
 
-        for(var s : B)
+        for (var s : B)
             System.out.print(s + " ");
 
-//        System.out.println(H.remove(11));
-//
-//        H.clear();
-//
-//        System.out.println(H);
+        System.out.println(H.remove(11));
+
+        H.clear();
+
+        System.out.println(H);
     }
 }
