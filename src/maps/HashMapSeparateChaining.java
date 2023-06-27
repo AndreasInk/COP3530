@@ -95,7 +95,6 @@ public class HashMapSeparateChaining<K,V> implements Iterable<Record<K,V>>, MapA
 
     }
     //****************************************************//
-
     RecordsSinglyLinkedList<K,V>[] buckets;
 
     int numberOfRecordsPresent = 0;
@@ -115,10 +114,8 @@ public class HashMapSeparateChaining<K,V> implements Iterable<Record<K,V>>, MapA
     }
 
     public boolean put(K key, V value){
-        if(key == null)
-            throw new IllegalArgumentException("Key cannot be null.");
-        if(value == null)
-            throw new IllegalArgumentException("Value cannot be null.");
+        if(key == null)   throw new IllegalArgumentException("Key cannot be null.");
+        if(value == null) throw new IllegalArgumentException("Value cannot be null.");
 
         int hashCode = key.hashCode(), bucketIndex = compressionFunction(hashCode, buckets.length);
 
@@ -134,6 +131,20 @@ public class HashMapSeparateChaining<K,V> implements Iterable<Record<K,V>>, MapA
 
         return true;
     }
+
+    private void rehash(){
+        var newBuckets = (RecordsSinglyLinkedList<K,V>[]) new RecordsSinglyLinkedList[buckets.length * 2];
+        for(int i = 0; i < newBuckets.length; i++)
+            newBuckets[i] = new RecordsSinglyLinkedList<>();
+
+        for (RecordsSinglyLinkedList<K, V> L : buckets)
+            for (var record : L) {
+                int hashCode = record.getKey().hashCode();
+                newBuckets[compressionFunction(hashCode, newBuckets.length)].addLast(record);
+            }
+        buckets = newBuckets;
+    }
+
 
     public V get(K key) {
         int hashCode = key.hashCode(), bucketIndex = compressionFunction(hashCode, buckets.length);
@@ -160,20 +171,6 @@ public class HashMapSeparateChaining<K,V> implements Iterable<Record<K,V>>, MapA
         int hashCode = key.hashCode(), bucketIndex = compressionFunction(hashCode, buckets.length);
         return buckets[bucketIndex].updateValue(key,newValue);
     }
-
-    private void rehash(){
-        var newBuckets = (RecordsSinglyLinkedList<K,V>[]) new RecordsSinglyLinkedList[buckets.length * 2];
-        for(int i = 0; i < newBuckets.length; i++)
-            newBuckets[i] = new RecordsSinglyLinkedList<>();
-
-        for (RecordsSinglyLinkedList<K, V> L : buckets)
-            for (var record : L) {
-                int hashCode = record.getKey().hashCode();
-                newBuckets[compressionFunction(hashCode, newBuckets.length)].addLast(record);
-            }
-        buckets = newBuckets;
-    }
-
 
     public void getAllKeys( Collection<K> S ) {
         for (Record<K, V> r : this)
