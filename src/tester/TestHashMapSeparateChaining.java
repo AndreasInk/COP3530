@@ -18,10 +18,12 @@ public class TestHashMapSeparateChaining {
         H.put(99, "Jack");
         H.put(10, "Tom");
         H.put(11, "Dorothy");
-       // System.out.println(H);
+        System.out.println(H);
         System.out.println(H.loadFactor());
 
         H.put(31, "Toby");
+        System.out.println(H);
+
         System.out.println(H.loadFactor());
 
         H.put(12, "Kim");
