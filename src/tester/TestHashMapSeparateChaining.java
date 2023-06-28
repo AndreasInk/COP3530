@@ -53,6 +53,19 @@ public class TestHashMapSeparateChaining {
 
         H.clear();
 
-        System.out.println(H);
+//           for(int n = 10; n <= 10000000; n = n * 10) {
+//               System.out.print("$"+ n + "$ & ");
+//               HashMap<Integer, String> M = new HashMap<>();
+//               long start = System.currentTimeMillis();
+//               for (int i = 0; i < n; i++)
+//                   M.put(i, "");
+//               System.out.printf(" $%d$", (System.currentTimeMillis() - start));
+//
+//               TreeMap<Integer, String> T = new TreeMap<>();
+//               start = System.currentTimeMillis();
+//               for (int i = 0; i < n; i++)
+//                   T.put(i, "");
+//               System.out.printf(" & $%d$\n", (System.currentTimeMillis() - start));
+
     }
 }

@@ -1,7 +1,12 @@
 package maps;
 
-@SuppressWarnings("SuspiciousNameCombination") // for suppressing unnecessary variable name warnings
-public class TreeMapRBTree<K extends Comparable<K>, V> { // Since the remove method is missing, we are
+import stacksandqueues.LinkedStack;
+import java.util.AbstractMap.SimpleEntry;
+import java.util.Iterator;
+
+@SuppressWarnings({"SuspiciousNameCombination","unchecked"}) // for suppressing unnecessary variable name warnings
+public class TreeMapRBTree<K extends Comparable<K>, V> implements Iterable< SimpleEntry<K,V> >{
+                                                         // Since the remove method is missing, we are
                                                          // unable to implement the MapADT interface
     private static final boolean RED = false, BLACK = true;
     private boolean CASE_TRACING = false;
@@ -156,7 +161,7 @@ public class TreeMapRBTree<K extends Comparable<K>, V> { // Since the remove met
                 }                                                                                   // Case 2
                 else if ( isRightChild(z.parent) && isLeftChild(z) ) {                              // Case 2
                     isCase2 = true;                                                                 // Case 2
-                if( CASE_TRACING ) System.out.println(" Using Case 2b");                             // Case 2
+                    if( CASE_TRACING ) System.out.println(" Using Case 2b");                         // Case 2
                     z = z.parent;                                                                   // Case 2
                     rightRotateAt(z);                                                               // Case 2
                 }
@@ -248,5 +253,33 @@ public class TreeMapRBTree<K extends Comparable<K>, V> { // Since the remove met
         printInOrderTraversalRecursive( node.left );
         System.out.println(node);
         printInOrderTraversalRecursive(node.right);
+    }
+
+    public Iterator<SimpleEntry<K,V>> iterator() {
+        return new TreeMapRBTreeIterator<>(this);
+    }
+
+    public static class TreeMapRBTreeIterator<K extends Comparable<K>, V> implements Iterator<SimpleEntry<K,V>> {
+        private Node<K,V> x;
+        private final LinkedStack<Node<?,?>> stack = new LinkedStack<>();
+        public TreeMapRBTreeIterator(TreeMapRBTree<?,?> S)   {
+            stack.push(S.root);
+            x = (Node<K, V>) S.root.left;
+        }
+
+        public boolean hasNext()  {
+            return x != null || !stack.isEmpty();
+        }
+
+        public SimpleEntry<K,V> next() {
+            while (x !=  null) { // keep on moving left and stop when stuck
+                stack.push(x);
+                x = x.left;
+            }
+            x = (Node<K, V>) stack.pop(); // pop an item
+            SimpleEntry<K,V> data = new SimpleEntry<>( x.key, x.val);
+            x = x.right; // traverse its right subtree
+            return data;
+        }
     }
 }

@@ -15,6 +15,9 @@ public class TestTreeMapRBTree {
         T.put(19, "Ann");
         T.put(8, "Jennifer");
 
+        for(var record : T )
+            System.out.println(record.getKey() + ", " + record.getValue());
+
         System.out.println();
         T.printInOrderTraversal();
         System.out.println("\nHeight: " + T.height());

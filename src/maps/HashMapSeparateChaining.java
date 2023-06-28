@@ -18,8 +18,7 @@ public class HashMapSeparateChaining<K,V> implements Iterable<Record<K,V>>, MapA
                 next = refToTheNextNode;
             }
         }
-        protected Node<Record<K,V>> head = null;
-        protected Node<Record<K,V>> tail = null;
+        protected Node<Record<K,V>> head = null, tail = null;
         protected int size = 0;
 
         public RecordsSinglyLinkedList() { }
@@ -110,7 +109,7 @@ public class HashMapSeparateChaining<K,V> implements Iterable<Record<K,V>>, MapA
     }
 
     private int compressionFunction( int x, int N ) {
-        return ( x % N );
+        return ( Math.abs(x) % N );
     }
 
     public boolean put(K key, V value){
@@ -172,12 +171,12 @@ public class HashMapSeparateChaining<K,V> implements Iterable<Record<K,V>>, MapA
         return buckets[bucketIndex].updateValue(key,newValue);
     }
 
-    public void getAllKeys( Collection<K> S ) {
+    public void getAllKeys( ArrayList<K> S ) {
         for (Record<K, V> r : this)
             S.add(r.getKey());
     }
 
-    public void getAllValues( Collection<V> S ) {
+    public void getAllValues( ArrayList<V> S ) {
         for (Record<K, V> r : this)
             S.add(r.getValue());
     }
@@ -230,3 +229,5 @@ public class HashMapSeparateChaining<K,V> implements Iterable<Record<K,V>>, MapA
         }
     }
 }
+
+

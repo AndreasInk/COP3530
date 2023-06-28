@@ -3,7 +3,7 @@ package tester;
 import maps.TreeMapBST;
 import java.util.*;
 
-public class TestTreeMapBinarySearchTree {
+public class TestTreeMapBST {
 	public static void main(String[] args) {
 		TreeMapBST<Integer,String> myBST = new TreeMapBST<>();
 
@@ -15,6 +15,9 @@ public class TestTreeMapBinarySearchTree {
 		myBST.put(52, "Jennifer");
 		myBST.put(54, "Peter");
 		myBST.put(56, "Melissa");
+
+		for(var record : myBST )
+			System.out.println(record.getKey() + ", " + record.getValue());
 
 		System.out.print("Height. " + myBST.height() + "\n");
 
@@ -59,14 +62,14 @@ public class TestTreeMapBinarySearchTree {
 		TreeMapBST<Integer,String> T = new TreeMapBST<>();
 		for(int i : A)
 			T.put(i,"junkString");
-		System.out.println("\nHeight(T): " + T.height());
+		//System.out.println("\nHeight(T): " + T.height());
 
 		Collections.shuffle(A);
 		T.clear();
 
 		for(int i : A)
 			T.put(i,"junkString");
-		System.out.println("\nHeight(T): " + T.height());
+		//System.out.println("\nHeight(T): " + T.height());
 
 	}
 }

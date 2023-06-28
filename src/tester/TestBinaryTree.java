@@ -26,6 +26,9 @@ public class TestBinaryTree {
 		System.out.print("\nPostOrder: ");
 		cityTree.printPostOrder();
 		
-		System.out.print("\nNumber of nodes in the tree: " + cityTree.countNodes( cityTree.getRoot() ));
+		System.out.print("\nNumber of nodes in the tree: " + cityTree.countNodes( cityTree.getRoot() ) + "\n");
+
+		for( var item : cityTree ) // Using the inorder iterator for the binary tree class
+			System.out.print(item + " ");
 	}
 }

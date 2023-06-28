@@ -1,6 +1,10 @@
 package trees;
 
-public class BinaryTree<E> {
+import stacksandqueues.LinkedStack;
+
+import java.util.Iterator;
+
+public class BinaryTree<E> implements Iterable<E>{
 	private static class BinaryTreeNode<E> {
 		final private E element;
 		private BinaryTreeNode<E> left, right;
@@ -102,4 +106,31 @@ public class BinaryTree<E> {
 		return countNodes(n.left) + countNodes(n.right) + 1;
 	}
 	//========================================================
+	public Iterator<E> iterator() {
+		return new BinaryTreeIterator<>(this);
+	}
+
+	public static class BinaryTreeIterator<E> implements Iterator<E> {
+		private BinaryTreeNode<E> x;
+		private final LinkedStack<BinaryTreeNode<E>> stack = new LinkedStack<>();
+		public BinaryTreeIterator(BinaryTree<E> S)   {
+			stack.push(S.root);
+			x = S.root.left;
+		}
+
+		public boolean hasNext()  {
+			return x != null || !stack.isEmpty();
+		}
+
+		public E next() {
+			while (x !=  null) { // keep on moving left and stop when stuck
+				stack.push(x);
+				x = x.left;
+			}
+			x = stack.pop(); // pop an item
+			E data = x.element;
+			x = x.right; // traverse its right subtree
+			return data;
+		}
+	}
 }

@@ -1,8 +1,11 @@
 package maps;
 
-import java.util.ArrayList;
+import stacksandqueues.LinkedStack;
+import java.util.*;
+import java.util.AbstractMap.SimpleEntry;
 
-public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
+@SuppressWarnings("unchecked")
+public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V>, Iterable< SimpleEntry<K,V> > {
     private static class Node<K, V> {
         private K key;
         private V val;
@@ -14,6 +17,7 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
         }
 
         public String toString() {
+          //  AbstractMap.SimpleEntry<K,V> record = new AbstractMap.SimpleEntry<>(key,val);
             if (val != null) return key.toString() + ", " + val.toString();
             else return key.toString();
         }
@@ -243,4 +247,31 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V> {
         else             return 1 + Math.max( heightRec(n.left) , heightRec(n.right) );
     }
     //**********************************************************//
+    public Iterator<SimpleEntry<K,V>> iterator() {
+        return new TreeMapIterator<>(this);
+    }
+
+    public static class TreeMapIterator<K extends Comparable<K>, V> implements Iterator<SimpleEntry<K,V>> {
+        private Node<K,V> x;
+        private final LinkedStack<Node<?,?>> stack = new LinkedStack<>();
+        public TreeMapIterator(TreeMapBST<?,?> S)   {
+            stack.push(S.root);
+            x = (Node<K, V>) S.root.left;
+        }
+
+        public boolean hasNext()  {
+            return x != null || !stack.isEmpty();
+        }
+
+        public SimpleEntry<K,V> next() {
+            while (x !=  null) { // keep on moving left and stop when stuck
+                stack.push(x);
+                x = x.left;
+            }
+            x = (Node<K, V>) stack.pop(); // pop an item
+            SimpleEntry<K,V> data = new SimpleEntry<>( x.key, x.val);
+            x = x.right; // traverse its right subtree
+            return data;
+        }
+    }
 }
