@@ -177,7 +177,7 @@ public class TreeSetRBTree<E extends Comparable<E>> implements Iterable<E> { // 
         Node<E> current = root;
 
         do {
-            if (e.compareTo(current.item) == 0) // a record exists with key 'key; insertion failed
+            if (e.compareTo(current.item) == 0) // a record exists with key 'key
                 return true;
             else if (e.compareTo(current.item) < 0) { // go to the left subtree and continue
                 current = current.left;
