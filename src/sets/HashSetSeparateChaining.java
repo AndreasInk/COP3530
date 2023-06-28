@@ -160,7 +160,7 @@ public class HashSetSeparateChaining<E> implements Iterable<E>  {
         return new HashSetIterator<>(this);
     }
 
-    public class HashSetIterator<H> implements Iterator<H> {
+    public static class HashSetIterator<H> implements Iterator<H> {
         SinglyLinkedList.SinglyLinkedListIterator<H> it;
         int currentBucket = 0;
         HashSetSeparateChaining<H> H;
@@ -183,7 +183,7 @@ public class HashSetSeparateChaining<E> implements Iterable<E>  {
         //**********************************************************//
     }
 
-    public boolean isPresent(E e) {
+    public boolean contains(E e) {
         int hashCode = e.hashCode(), bucketIndex = compressionFunction(hashCode, buckets.length);
         for( var item : buckets[bucketIndex] )
             if( item.equals(e) )
@@ -200,7 +200,7 @@ public class HashSetSeparateChaining<E> implements Iterable<E>  {
         HashSetSeparateChaining<E> tempS = new HashSetSeparateChaining<>();
 
         for(var e : this)
-            if( T.isPresent(e) )
+            if( T.contains(e) )
                 tempS.add(e);
 
         buckets = tempS.buckets;
@@ -211,7 +211,7 @@ public class HashSetSeparateChaining<E> implements Iterable<E>  {
         HashSetSeparateChaining<E> tempS = new HashSetSeparateChaining<>();
 
         for(var e : this)
-            if( !T.isPresent(e) )
+            if( !T.contains(e) )
                 tempS.add(e);
 
         buckets = tempS.buckets;

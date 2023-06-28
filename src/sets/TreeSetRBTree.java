@@ -170,7 +170,7 @@ public class TreeSetRBTree<E extends Comparable<E>> implements Iterable<E> { // 
         root = null; numberOfNodes = 0;
     }
     //**********************************************************//
-    public boolean isPresent(E e) {
+    public boolean contains(E e) {
         if( root == null )
             return false;
 
@@ -199,7 +199,7 @@ public class TreeSetRBTree<E extends Comparable<E>> implements Iterable<E> { // 
         TreeSetRBTree<E> tempS = new TreeSetRBTree<>();
 
         for( var e : this )
-            if( T.isPresent(e) )
+            if( T.contains(e) )
                 tempS.add(e);
 
         root = tempS.root;
@@ -210,7 +210,7 @@ public class TreeSetRBTree<E extends Comparable<E>> implements Iterable<E> { // 
         TreeSetRBTree<E> tempS = new TreeSetRBTree<>();
 
         for(var e : this)
-            if( !T.isPresent(e) )
+            if( !T.contains(e) )
                 tempS.add(e);
 
         root = tempS.root;
