@@ -9,11 +9,11 @@ public class TreeSetRBTree<E extends Comparable<E>> implements Iterable<E> { // 
                                                          // unable to implement the MapADT interface
     private static final boolean RED = false, BLACK = true;
 
-    private static class Node<K> {
-        final private K item;
-        private Node<K> left, right, parent;
+    private static class Node<E> {
+        final private E item;
+        private Node<E> left, right, parent;
         private boolean color;
-        public Node(K e) {
+        public Node(E e) {
             item = e;
             left = right = parent = null;
             color = RED; // new incoming nodes are always colored RED

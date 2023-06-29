@@ -150,7 +150,7 @@ public class HashMapSeparateChaining<K,V> implements Iterable<SimpleEntry<K,V>>,
     public V get(K key) {
         int hashCode = key.hashCode(), bucketIndex = compressionFunction(hashCode, buckets.length);
         for( var record : buckets[bucketIndex] )
-            if( record.getKey().equals(key) )
+            if (record.getKey().equals(key))
                 return record.getValue();
         return null;
     }
