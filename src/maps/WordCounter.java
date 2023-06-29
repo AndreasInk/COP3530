@@ -1,7 +1,6 @@
 package maps;
 
 import java.io.*;
-import java.util.ArrayList;
 
 public class WordCounter {
 	TreeMapBST<String,Integer> T = new TreeMapBST<>();
@@ -42,13 +41,7 @@ public class WordCounter {
 	}
 
 	public void getWordFrequenciesSortedLexicographically() {
-		ArrayList<String> words = new ArrayList<>();
-		T.getAllKeys(words);
-
-		ArrayList<Integer> counts = new ArrayList<>();
-		T.getAllValues(counts);
-
-		for(int i = 0; i < words.size(); i++)
-			System.out.println("<" + words.get(i) + ", " + counts.get(i) + ">");
+		for( var record : T )
+			System.out.println("<" + record.getKey() + ", " + record.getValue() + ">");
 	}
 }

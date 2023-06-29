@@ -17,7 +17,6 @@ public class TreeMapBST<K extends Comparable<K>, V> implements MapADT<K,V>, Iter
         }
 
         public String toString() {
-          //  AbstractMap.SimpleEntry<K,V> record = new AbstractMap.SimpleEntry<>(key,val);
             if (val != null) return key.toString() + ", " + val.toString();
             else return key.toString();
         }
