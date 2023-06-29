@@ -31,7 +31,7 @@ public class TestHashMapSeparateChaining {
         H.put(33, "Debbie");
 
         for (var r : H)
-            System.out.print(r + " ");
+            System.out.println("[" + r.getKey() + ", " + r.getValue() + "]");
 
         System.out.println(H.get(36));
 
@@ -52,20 +52,5 @@ public class TestHashMapSeparateChaining {
         System.out.println(H.remove(11));
 
         H.clear();
-
-//           for(int n = 10; n <= 10000000; n = n * 10) {
-//               System.out.print("$"+ n + "$ & ");
-//               HashMap<Integer, String> M = new HashMap<>();
-//               long start = System.currentTimeMillis();
-//               for (int i = 0; i < n; i++)
-//                   M.put(i, "");
-//               System.out.printf(" $%d$", (System.currentTimeMillis() - start));
-//
-//               TreeMap<Integer, String> T = new TreeMap<>();
-//               start = System.currentTimeMillis();
-//               for (int i = 0; i < n; i++)
-//                   T.put(i, "");
-//               System.out.printf(" & $%d$\n", (System.currentTimeMillis() - start));
-
     }
 }
