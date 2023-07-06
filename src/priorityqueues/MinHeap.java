@@ -28,7 +28,7 @@ public class MinHeap<E extends Comparable<E>> implements PriorityQueue<E>, Itera
 
         // move the new record up the heap to the suitable place
         while (parentIndex >= 0 && getCompareToResult(parentIndex, childIndex) > 0) {
-            swapTheRecordsAt(childIndex, parentIndex); // swap the parent and child since the parent is larger
+            swapTheItemsAt(childIndex, parentIndex); // swap the parent and child since the parent is larger
             childIndex = parentIndex; // update child index
             parentIndex = (childIndex - 1) / 2; // update parent index
         }
@@ -40,7 +40,7 @@ public class MinHeap<E extends Comparable<E>> implements PriorityQueue<E>, Itera
     }
 
     // swap the records at the indices indexA and indexB
-    private void swapTheRecordsAt(int indexA, int indexB) {
+    private void swapTheItemsAt(int indexA, int indexB) {
         E hold = A.get(indexA);
         A.set(indexA, A.get(indexB));
         A.set(indexB, hold);
@@ -51,11 +51,11 @@ public class MinHeap<E extends Comparable<E>> implements PriorityQueue<E>, Itera
         if (isEmpty()) // if heap is empty, return null
             return null;
 
-        E deletedRecord = min(); // store the record to be deleted in a variable
+        E deletedItem = min(); // store the record to be deleted in a variable
 
         if (size() == 1) { // if the heap has exactly one record, then just remove it
             A.remove(0);
-            return deletedRecord;
+            return deletedItem;
         }
 
         A.set(0, A.remove(A.size() - 1)); // bring the last element to the front
@@ -74,14 +74,14 @@ public class MinHeap<E extends Comparable<E>> implements PriorityQueue<E>, Itera
                 minChildIndex = rightChildIndex;
 
             // the parent is bigger than the smaller child
-            if (getCompareToResult(parentIndex, minChildIndex) > 0) {
-                swapTheRecordsAt(parentIndex, minChildIndex);
+            if ( getCompareToResult(parentIndex, minChildIndex) > 0) {
+                swapTheItemsAt(parentIndex, minChildIndex);
                 parentIndex = minChildIndex;
             } else
                 break;
         }
 
-        return deletedRecord;
+        return deletedItem;
     }
 
     public String toString() {

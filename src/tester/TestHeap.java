@@ -7,7 +7,7 @@ public class TestHeap {
 	public static void main(String[] args) {
 		MinHeap<String> H = new MinHeap<>();
 		
-		H.insert("Alica");
+		H.insert("Alice");
 		H.insert("Bob");
 		H.insert("Melissa");
 		H.insert("Kate");
@@ -30,7 +30,5 @@ public class TestHeap {
 			System.out.print(item + " ");
 
 		System.out.println("\nMin element: " + H.min());
-
-
 	}
 }
