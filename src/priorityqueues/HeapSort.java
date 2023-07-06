@@ -2,7 +2,7 @@ package priorityqueues;
 
 public class HeapSort {
     public static <K extends Comparable<K>> void sort(K[] S) {
-        Heap<K> H = new Heap<>();
+        MinHeap<K> H = new MinHeap<>();
 
         // Create a min-heap from scratch using the elements of 'S'
         for(K item : S)

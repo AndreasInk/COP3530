@@ -5,7 +5,7 @@ import priorityqueues.*;
 public class TestHeap {
 
 	public static void main(String[] args) {
-		Heap<String> H = new Heap<>();
+		MinHeap<String> H = new MinHeap<>();
 		
 		H.insert("Alica");
 		H.insert("Bob");
@@ -20,8 +20,17 @@ public class TestHeap {
 		H.insert("Benjamin");
 		H.insert("Noah");
 
-		while( !H.isEmpty() )
-			System.out.print(H.removeMin() + " ");
+		// iterating over all the items in H
+		for(var item : H )
+			System.out.print(item + " ");
+
+		System.out.println("\nMin element: " + H.min());
+		H.removeMin();
+		for(var item : H )
+			System.out.print(item + " ");
+
+		System.out.println("\nMin element: " + H.min());
+
 
 	}
 }

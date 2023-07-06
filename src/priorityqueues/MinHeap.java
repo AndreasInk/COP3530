@@ -2,10 +2,10 @@ package priorityqueues;
 
 import java.util.*;
 
-public class Heap<E extends Comparable<E>> implements PriorityQueue<E>, Iterable<E> {
+public class MinHeap<E extends Comparable<E>> implements PriorityQueue<E>, Iterable<E> {
     final private ArrayList<E> A = new ArrayList<>(11); // 11 is chosen by Java for its library PQ implementation
 
-    public Heap() { }
+    public MinHeap() { }
 
     public int size() {
         return A.size();
