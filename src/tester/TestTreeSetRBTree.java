@@ -3,6 +3,16 @@ package tester;
 import sets.*;
 
 public class TestTreeSetRBTree {
+    public static TreeSetRBTree<Integer> doSomething(TreeSetRBTree<Integer> T1, TreeSetRBTree<Integer> T2) { // S = S intersection T
+        TreeSetRBTree<Integer> S = new TreeSetRBTree<>();
+
+        for( var e : T1 )
+            if( T2.contains(e) )
+                S.add(e);
+
+        return S;
+    }
+
     public static void main(String[] args) {
         TreeSetRBTree<Integer> S = new TreeSetRBTree<>(), T = new TreeSetRBTree<>();
         //============================= set union ===============================//
